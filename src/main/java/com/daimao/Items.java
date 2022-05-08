@@ -1,10 +1,12 @@
 package com.daimao;
 
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public enum Items {
@@ -31,6 +33,13 @@ public enum Items {
     ).setRegistryName(new ResourceLocation(
             Main.MOD_ID,
             "shaxian_dumpling")
+    )),
+    // 五彩斑斓
+    COLORFUL(new BlockItem(
+            Blocks.COLORFUL.getBlock(),
+            new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)
+    ).setRegistryName(
+            Objects.requireNonNull(Blocks.COLORFUL.getBlock().getRegistryName())
     ));
 
     private final Item item;

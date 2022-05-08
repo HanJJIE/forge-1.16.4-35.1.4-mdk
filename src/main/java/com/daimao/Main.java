@@ -13,7 +13,7 @@ import java.util.Objects;
 @Mod(Main.MOD_ID)
 public class Main {
 
-    public static final String MOD_ID = "daimaocar";
+    public static final String MOD_ID = "daimao";
     private static final Logger LOGGER = LogManager.getLogger();
 
     private static Main instance = null;
