@@ -1,12 +1,12 @@
 package com.daimao;
 
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
@@ -14,7 +14,12 @@ import java.util.Objects;
 public class Main {
 
     public static final String MOD_ID = "daimao";
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final ItemGroup DAIMAO_GROUP = new ItemGroup("daimao_group") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(Items.CAR.getItem());
+        }
+    };
 
     private static Main instance = null;
 

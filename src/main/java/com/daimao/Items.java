@@ -2,7 +2,6 @@ package com.daimao;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.Arrays;
@@ -13,14 +12,14 @@ public enum Items {
 
     // 车
     CAR(new Item(new Item.Properties()
-            .group(ItemGroup.MATERIALS)
+            .group(Main.DAIMAO_GROUP)
     ).setRegistryName(new ResourceLocation(
             Main.MOD_ID,
             "car")
     )),
     // 沙县-拌面
     SHAXIAN_NOODLES(new Item(new Item.Properties()
-            .group(ItemGroup.FOOD)
+            .group(Main.DAIMAO_GROUP)
             .food(Foods.SHAXIAN_NOODLES.getFood())
     ).setRegistryName(new ResourceLocation(
             Main.MOD_ID,
@@ -28,7 +27,7 @@ public enum Items {
     )),
     // 沙县-蒸饺
     SHAXIAN_DUMPLING(new Item(new Item.Properties()
-            .group(ItemGroup.FOOD)
+            .group(Main.DAIMAO_GROUP)
             .food(Foods.SHAXIAN_DUMPLING.getFood())
     ).setRegistryName(new ResourceLocation(
             Main.MOD_ID,
@@ -37,7 +36,7 @@ public enum Items {
     // 五彩斑斓
     COLORFUL(new BlockItem(
             Blocks.COLORFUL.getBlock(),
-            new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)
+            new Item.Properties().group(Main.DAIMAO_GROUP)
     ).setRegistryName(
             Objects.requireNonNull(Blocks.COLORFUL.getBlock().getRegistryName())
     ));
