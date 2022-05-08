@@ -14,6 +14,9 @@ import java.util.Objects;
 public class Main {
 
     public static final String MOD_ID = "daimao";
+    /**
+     * 创造模式分组
+     */
     public static final ItemGroup DAIMAO_GROUP = new ItemGroup("daimao_group") {
         @Override
         public ItemStack createIcon() {
@@ -21,6 +24,9 @@ public class Main {
         }
     };
 
+    /**
+     * 实例
+     */
     private static Main instance = null;
 
     public static Main getInstance() {
@@ -30,6 +36,9 @@ public class Main {
         return instance;
     }
 
+    /**
+     * 初始化方法
+     */
     private static void init() {
         instance = new Main();
         FMLJavaModLoadingContext.get().getModEventBus()
