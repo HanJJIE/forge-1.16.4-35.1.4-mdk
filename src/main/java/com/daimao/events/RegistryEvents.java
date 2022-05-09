@@ -1,7 +1,7 @@
 package com.daimao.events;
 
-import com.daimao.Blocks;
-import com.daimao.Items;
+import com.daimao.item.Blocks;
+import com.daimao.item.Items;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -18,7 +18,7 @@ public class RegistryEvents {
     @SubscribeEvent
     public static void registerItems(
             final RegistryEvent.Register<Item> event) {
-        event.getRegistry().registerAll(Items.getAll());
+        event.getRegistry().registerAll(new Items().getAll());
     }
 
     /**
@@ -28,7 +28,7 @@ public class RegistryEvents {
     @SubscribeEvent
     public static void registerBlocks(
             final RegistryEvent.Register<Block> event) {
-        event.getRegistry().registerAll(Blocks.getAll());
+        event.getRegistry().registerAll(new Blocks().getAll());
     }
 
 }

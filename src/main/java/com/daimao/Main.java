@@ -1,5 +1,6 @@
 package com.daimao;
 
+import com.daimao.item.Items;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -20,7 +21,7 @@ public class Main {
     public static final ItemGroup DAIMAO_GROUP = new ItemGroup("daimao_group") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(Items.CAR.getItem());
+            return new ItemStack(Items.CAR);
         }
     };
 
