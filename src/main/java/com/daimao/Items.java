@@ -12,6 +12,7 @@ public enum Items {
 
     // 车
     CAR(new Item(new Item.Properties()
+            // 分组
             .group(Main.DAIMAO_GROUP)
     ).setRegistryName(new ResourceLocation(
             Main.MOD_ID,
