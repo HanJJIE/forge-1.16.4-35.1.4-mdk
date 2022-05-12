@@ -6,10 +6,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.ResourceLocation;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Blocks {
 
     // 五彩斑斓
@@ -25,22 +21,5 @@ public class Blocks {
             Main.MOD_ID,
             "colorful")
     ));
-
-    /**
-     * 获取所有 Block
-     * @return all block
-     */
-    public Block[] getAll() {
-        List<Block> list = new ArrayList<>();
-        for (Field field : this.getClass().getDeclaredFields()) {
-            field.setAccessible(Boolean.TRUE);
-            try {
-                list.add((Block) field.get(this));
-            } catch (Exception e) {
-                System.out.println("get block error: " + e.getMessage());
-            }
-        }
-        return list.toArray(new Block[list.size() - 1]);
-    }
 
 }

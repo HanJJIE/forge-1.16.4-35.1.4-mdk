@@ -5,9 +5,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Items {
@@ -43,22 +40,5 @@ public class Items {
     ).setRegistryName(
             Objects.requireNonNull(Blocks.COLORFUL.getBlock().getRegistryName())
     ));
-
-    /**
-     * 获取所有 Item
-     * @return all item
-     */
-    public Item[] getAll() {
-        List<Item> list = new ArrayList<>();
-        for (Field field : this.getClass().getDeclaredFields()) {
-            field.setAccessible(Boolean.TRUE);
-            try {
-                list.add((Item) field.get(this));
-            } catch (Exception e) {
-                System.out.println("get block error: " + e.getMessage());
-            }
-        }
-        return list.toArray(new Item[list.size() - 1]);
-    }
 
 }
