@@ -1,6 +1,8 @@
 package com.daimao.item;
 
 import com.daimao.Main;
+import com.daimao.block.DaiMaoOreBlock;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -9,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 public class Blocks {
 
     // 五彩斑斓
-    public static final Block COLORFUL = (new Block(Block.Properties
+    public static final Block COLORFUL = new Block(AbstractBlock.Properties
             // 创建材料类型：岩石
             .create(Material.ROCK)
             // 硬度和阻力
@@ -20,6 +22,18 @@ public class Blocks {
     ).setRegistryName(new ResourceLocation(
             Main.MOD_ID,
             "colorful")
-    ));
+    );
+
+    // 矿物：呆毛矿
+    public static final Block DAIMAO_ORE = new DaiMaoOreBlock(AbstractBlock.Properties
+            // 创建岩石
+            .create(Material.ROCK)
+            .setRequiresTool()
+            // 硬度和阻力，这里和铁矿石一样
+            .hardnessAndResistance(3.0F, 3.0F)
+    ).setRegistryName(new ResourceLocation(
+            Main.MOD_ID,
+            "daimao_ore")
+    );
 
 }

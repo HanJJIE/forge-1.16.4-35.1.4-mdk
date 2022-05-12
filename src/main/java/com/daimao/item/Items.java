@@ -40,5 +40,12 @@ public class Items {
     ).setRegistryName(
             Objects.requireNonNull(Blocks.COLORFUL.getBlock().getRegistryName())
     ));
+    // 五彩斑斓
+    public static final Item DAIMAO_ORE = (new BlockItem(
+            Blocks.DAIMAO_ORE,
+            new Item.Properties().group(Main.DAIMAO_GROUP)
+    ).setRegistryName(
+            Objects.requireNonNull(Blocks.DAIMAO_ORE.getBlock().getRegistryName())
+    ));
 
 }
