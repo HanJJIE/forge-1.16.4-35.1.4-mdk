@@ -54,7 +54,7 @@ public class RegistryEvents {
             field.setAccessible(Boolean.TRUE);
             try {
                 if (Modifier.isStatic(field.getModifiers()) && Objects.equals(field.getType(), targetClass)) {
-                    list.add((T) field.get(objClass));
+                    list.add(targetClass.cast(field.get(objClass)));
                 }
             } catch (Exception e) {
                 System.out.println("RegistryEvents.getAllStaticField.error: " + e.getMessage());
