@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "daimao:daimao_ore"
+  },
+  "result": "minecraft:diamond",
+  "experience": 20,
+  "cookingtime": 20
+}
