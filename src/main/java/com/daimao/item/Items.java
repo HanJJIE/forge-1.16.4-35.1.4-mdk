@@ -69,5 +69,12 @@ public class Items {
             Main.MOD_ID,
             "high_sword")
     );
+    // 面向我（也就是箭头面向对面）
+    public static final Item POINT_TO_ONESELF = new BlockItem(
+            Blocks.POINT_TO_ONESELF,
+            new Item.Properties().group(Main.DAIMAO_GROUP)
+    ).setRegistryName(
+            Objects.requireNonNull(Blocks.POINT_TO_ONESELF.getBlock().getRegistryName())
+    );
 
 }

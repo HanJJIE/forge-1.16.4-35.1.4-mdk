@@ -2,6 +2,7 @@ package com.daimao.item;
 
 import com.daimao.Main;
 import com.daimao.block.DaiMaoOreBlock;
+import com.daimao.block.PointToOneself;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -35,5 +36,17 @@ public class Blocks {
             Main.MOD_ID,
             "daimao_ore")
     );
+
+    // 面向我（也就是箭头面向对面）
+    public static final Block POINT_TO_ONESELF = new PointToOneself(AbstractBlock.Properties
+            // 创建岩石
+            .create(Material.ROCK)
+            // 硬度和阻力，这里和铁矿石一样
+            .hardnessAndResistance(3.0F, 3.0F)
+    ).setRegistryName(new ResourceLocation(
+            Main.MOD_ID,
+            "point_to_oneself")
+    );
+
 
 }

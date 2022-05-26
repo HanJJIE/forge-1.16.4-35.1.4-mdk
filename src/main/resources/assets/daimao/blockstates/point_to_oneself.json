@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "daimao:block/point_to_oneself"
+    },
+    "facing=south": {
+      "model": "daimao:block/point_to_oneself",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "daimao:block/point_to_oneself",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "daimao:block/point_to_oneself",
+      "y": 90
+    }
+  }
+}
