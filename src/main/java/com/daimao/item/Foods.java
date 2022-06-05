@@ -6,6 +6,9 @@ import net.minecraft.potion.Effects;
 
 public class Foods {
 
+    /**
+     * 沙县-拌面
+     */
     public static final Food SHAXIAN_NOODLES = (new Food.Builder()
             // 回复的饥饿值（鸡腿）：5
             .hunger(10)
@@ -25,6 +28,9 @@ public class Foods {
             .setAlwaysEdible()
             .build()
     );
+    /**
+     * 沙县-蒸饺
+     */
     public static final Food SHAXIAN_DUMPLING = (new Food.Builder()
             .hunger(10)
             .saturation(0.5f)

@@ -11,7 +11,9 @@ import java.util.Objects;
 
 public class Items {
 
-    // 车
+    /**
+     * 车
+     */
     public static final Item CAR = new Item(new Item.Properties()
             // 分组
             .group(Main.DAIMAO_GROUP)
@@ -19,7 +21,9 @@ public class Items {
             Main.MOD_ID,
             "car")
     );
-    // 沙县-拌面
+    /**
+     * 沙县-拌面
+     */
     public static final Item SHAXIAN_NOODLES = new Item(new Item.Properties()
             .group(Main.DAIMAO_GROUP)
             .food(Foods.SHAXIAN_NOODLES)
@@ -27,7 +31,9 @@ public class Items {
             Main.MOD_ID,
             "shaxian_noodles")
     );
-    // 沙县-蒸饺
+    /**
+     * 沙县-蒸饺
+     */
     public static final Item SHAXIAN_DUMPLING = new Item(new Item.Properties()
             .group(Main.DAIMAO_GROUP)
             .food(Foods.SHAXIAN_DUMPLING)
@@ -35,21 +41,27 @@ public class Items {
             Main.MOD_ID,
             "shaxian_dumpling")
     );
-    // 五彩斑斓
+    /**
+     * 五彩斑斓
+     */
     public static final Item COLORFUL = new BlockItem(
             Blocks.COLORFUL,
             new Item.Properties().group(Main.DAIMAO_GROUP)
     ).setRegistryName(
             Objects.requireNonNull(Blocks.COLORFUL.getBlock().getRegistryName())
     );
-    // 五彩斑斓
+    /**
+     * 呆毛矿
+     */
     public static final Item DAIMAO_ORE = new BlockItem(
             Blocks.DAIMAO_ORE,
             new Item.Properties().group(Main.DAIMAO_GROUP)
     ).setRegistryName(
             Objects.requireNonNull(Blocks.DAIMAO_ORE.getBlock().getRegistryName())
     );
-    // 低级剑
+    /**
+     * 低级剑
+     */
     public static final Item LOW_SWORD = new SwordItem(
             ItemTier.LOW,
             1,
@@ -59,7 +71,9 @@ public class Items {
             Main.MOD_ID,
             "low_sword")
     );
-    // 高级级剑
+    /**
+     * 高级剑
+     */
     public static final Item HIGH_SWORD = new SwordItem(
             ItemTier.HIGH,
             88,
@@ -69,12 +83,23 @@ public class Items {
             Main.MOD_ID,
             "high_sword")
     );
-    // 面向我（也就是箭头面向对面）
+    /**
+     * 面向我（也就是箭头面向对面）
+     */
     public static final Item POINT_TO_ONESELF = new BlockItem(
             Blocks.POINT_TO_ONESELF,
             new Item.Properties().group(Main.DAIMAO_GROUP)
     ).setRegistryName(
             Objects.requireNonNull(Blocks.POINT_TO_ONESELF.getBlock().getRegistryName())
+    );
+    /**
+     * 单个插槽的容器
+     */
+    public static final Item SINGLE_SLOT_CONTAINER_ITEM = new BlockItem(
+            Blocks.SINGLE_SLOT_CONTAINER_BLOCK,
+            new Item.Properties().group(Main.DAIMAO_GROUP)
+    ).setRegistryName(
+            Objects.requireNonNull(Blocks.SINGLE_SLOT_CONTAINER_BLOCK.getBlock().getRegistryName())
     );
 
 }

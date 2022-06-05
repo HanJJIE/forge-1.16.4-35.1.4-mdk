@@ -7,5 +7,6 @@
   "block.daimao.point_to_oneself": "面向我（模型建反了...）",
   "itemGroup.daimao_group": "呆毛 Mod",
   "item.daimao.low_sword": "低级剑",
-  "item.daimao.high_sword": "高级剑"
+  "item.daimao.high_sword": "高级剑",
+  "block.daimao.single_slot_container": "单槽容器"
 }

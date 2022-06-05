@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "daimao:block/single_slot_container"
+    }
+  }
+}

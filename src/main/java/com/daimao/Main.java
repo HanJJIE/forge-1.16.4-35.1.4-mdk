@@ -1,11 +1,15 @@
 package com.daimao;
 
+import com.daimao.client.gui.screen.SingleSlotContainerScreen;
+import com.daimao.item.ContainerTypes;
 import com.daimao.item.Items;
 import com.daimao.world.gen.OreGeneration;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -33,16 +37,11 @@ public class Main {
 
     public Main() {
         instance = this;
-        FMLJavaModLoadingContext.get().getModEventBus()
-                .addListener(instance::setup);
-        FMLJavaModLoadingContext.get().getModEventBus()
-                .addListener(instance::clientSetup);
-//        FMLJavaModLoadingContext.get().getModEventBus()
-//                .addListener(instance::onServerStarting);
-        MinecraftForge.EVENT_BUS.addListener(
-                EventPriority.HIGH,
-                OreGeneration::generateOres
-        );
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modEventBus.addListener(instance::setup);
+        modEventBus.addListener(instance::clientSetup);
+//        modEventBus.addListener(instance::onServerStarting);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -50,7 +49,7 @@ public class Main {
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
-
+        ScreenManager.registerFactory(ContainerTypes.SINGLE_SLOT_CONTAINER, SingleSlotContainerScreen::new);
     }
 
     private void onServerStarting(final FMLServerStartingEvent event) {

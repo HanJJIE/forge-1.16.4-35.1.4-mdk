@@ -1,6 +1,7 @@
 package com.daimao.item;
 
 import com.daimao.Main;
+import com.daimao.block.SingleSlotContainerBlock;
 import com.daimao.block.DaiMaoOreBlock;
 import com.daimao.block.PointToOneself;
 import net.minecraft.block.AbstractBlock;
@@ -11,7 +12,9 @@ import net.minecraft.util.ResourceLocation;
 
 public class Blocks {
 
-    // 五彩斑斓
+    /**
+     * 五彩斑斓
+     */
     public static final Block COLORFUL = new Block(AbstractBlock.Properties
             // 创建材料类型：岩石
             .create(Material.ROCK)
@@ -25,7 +28,9 @@ public class Blocks {
             "colorful")
     );
 
-    // 矿物：呆毛矿
+    /**
+     * 矿物：呆毛矿
+     */
     public static final Block DAIMAO_ORE = new DaiMaoOreBlock(AbstractBlock.Properties
             // 创建岩石
             .create(Material.ROCK)
@@ -37,7 +42,9 @@ public class Blocks {
             "daimao_ore")
     );
 
-    // 面向我（也就是箭头面向对面）
+    /**
+     * 面向我（也就是箭头面向对面）
+     */
     public static final Block POINT_TO_ONESELF = new PointToOneself(AbstractBlock.Properties
             // 创建岩石
             .create(Material.ROCK)
@@ -48,5 +55,14 @@ public class Blocks {
             "point_to_oneself")
     );
 
+    /**
+     * 单个插槽的容器
+     */
+    public static final Block SINGLE_SLOT_CONTAINER_BLOCK = new SingleSlotContainerBlock(AbstractBlock.Properties
+            // 石头材质，金属音效，硬度 5
+            .create(Material.ROCK)
+            .sound(SoundType.METAL)
+            .hardnessAndResistance(5.0F)
+    ).setRegistryName("single_slot_container");
 
 }
