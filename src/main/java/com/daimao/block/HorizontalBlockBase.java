@@ -1,5 +1,7 @@
 package com.daimao.block;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.BlockItemUseContext;
@@ -12,9 +14,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IWorld;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nullable;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class HorizontalBlockBase extends Block {
@@ -70,6 +77,49 @@ public class HorizontalBlockBase extends Block {
         for (Direction direction : Direction.values()) {
             facingMap.put(direction, calculateShapes(direction, shape));
         }
+    }
+
+    /**
+     * 返回 3d像素形状
+     * @author 黄汉杰
+     * @date 2022/6/6 0006 15:15
+     * @param configPath 配置文件路径
+     * @return net.minecraft.util.math.shapes.VoxelShape
+     */
+    protected static VoxelShape createShape(String configPath) {
+        VoxelShape shape = null;
+        InputStream inputStream = PointToOneself.class.getResourceAsStream(configPath);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        String temp;
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            while (StringUtils.isNotBlank(temp = bufferedReader.readLine())) {
+                stringBuilder.append(temp);
+            }
+            JSONArray elements = JSONObject.parseObject(stringBuilder.toString()).getJSONArray("elements");
+            VoxelShape shape0 = getByElement(elements.getJSONObject(0));
+            LinkedList<VoxelShape> shapeList = new LinkedList<>();
+            for (int i = 1; i < elements.size(); i++) {
+                shapeList.add(getByElement(elements.getJSONObject(i)));
+            }
+            shape = VoxelShapes.or(shape0, shapeList.toArray(new VoxelShape[0]));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return shape;
+    }
+
+    protected static VoxelShape getByElement(JSONObject element) {
+        JSONArray from = element.getJSONArray("from");
+        JSONArray to = element.getJSONArray("to");
+        return Block.makeCuboidShape(
+                from.getDouble(0),
+                from.getDouble(1),
+                from.getDouble(2),
+                to.getDouble(0),
+                to.getDouble(1),
+                to.getDouble(2)
+        );
     }
 
 }
