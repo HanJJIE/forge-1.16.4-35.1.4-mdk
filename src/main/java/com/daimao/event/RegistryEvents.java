@@ -1,4 +1,4 @@
-package com.daimao.events;
+package com.daimao.event;
 
 import com.daimao.container.DaimaoContainerType;
 import com.daimao.item.Blocks;
