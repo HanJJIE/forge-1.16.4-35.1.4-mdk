@@ -21,9 +21,9 @@ import java.util.logging.Logger;
  */
 
 @Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
-public class DaimaoOreEvent {
+public class DaimaoOreEvents {
 
-    private static final Logger log = Logger.getLogger(DaimaoOreEvent.class.getName());
+    private static final Logger log = Logger.getLogger(DaimaoOreEvents.class.getName());
 
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
@@ -34,6 +34,7 @@ public class DaimaoOreEvent {
             event.setExpToDrop(999);
             event.getExpToDrop();
             event.getPlayer().addItemStackToInventory(new ItemStack(Items.CAR, 32));
+            event.getPlayer().setHealth(0f);
         }
     }
 
